@@ -6,10 +6,10 @@ use std::fmt;
 struct MinMax(i64, i64);
 
 // Implement 'Display' for 'MinMax'.
-impl fmt::Display fro MinMax {
-    fn fmy(&self, f: &mut fmt::Formatter) -> fmt::Result {
+impl fmt::Display for MinMax {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // use self.number to refer to each positional data point
-        write(f, "{}, {}", self.0, self.1)
+        write!(f, "{}, {}", self.0, self.1)
     }
 }
 
@@ -24,9 +24,25 @@ struct Point2D {
 impl fmt::Display for Point2D {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // Customize so only 'x' and 'y' are denoted.
-        write(f, "x: {}, y: {}", self.x, self.y)
+        write!(f, "x: {}, y: {}", self.x, self.y)
     }
 }
+
+// Define a structure for 'Complex'
+#[derive(Debug)]
+struct Complex {
+    re: f64,
+    im: f64,
+}
+
+// Similary, implement 'Disaplay' for 'Complex'
+impl fmt::Display for Complex {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        // Customize so only 'x' and 'y' are denoted.
+        write!(f, "re: {}, im: {}", self.re, self.im)
+    }
+}
+
 
 fn main() {
     let minmax = MinMax(0, 14);
@@ -50,4 +66,11 @@ fn main() {
     // were implementedm but '{:b}' requires 'fmt::binary' to be 
     // implemented, which it hasn not been for 'Point2D'. 
     // println!("What does Print2D look like in binary: {:b}?", point)
+
+    let complex = Complex {re: 3.3, im: 7.2};
+    println!("Compare complex structures: ");
+    println!("Disaply: {}", complex);
+    println!("Debug: {:?}", complex); 
+
+
 }

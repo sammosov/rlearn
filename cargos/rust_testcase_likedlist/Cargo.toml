@@ -1,0 +1,6 @@
+[package]
+name = "rust_testcase_likedlist"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
